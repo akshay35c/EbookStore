@@ -1,0 +1,42 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">productId</th>
+      <th scope="col">productName</th>
+      <th scope="col">productType</th>
+      <th scope="col">productCategoryId</th>
+      <th scope="col">productLanguageId</th>
+      <th scope="col">productMaxPrice</th>
+      <th scope="col">productSellPrice</th>
+      <th scope="col">productDiscount</th>
+      <th scope="col">productAuthor</th>
+      <th scope="col">productPublisher</th>
+      <th scope="col">productImage</th>
+      <th scope="col">productAvailRent</th>
+      <th scope="col">productAvailLent</th>
+      <th scope="col">productRentAmount</th>
+      <th scope="col">productRentDays</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products">
+        <td>{{item.productId}}</td>
+        <td>{{item.productName}}</td>
+        <td>{{item.productType}}</td>
+        <td>{{item.productCategoryId}}</td>
+        <td>{{item.productLanguageId}}</td>
+        <td>{{item.productMaxPrice}}</td>
+        <td>{{item.productSellPrice}}</td>
+        <td>{{item.productDiscount}}</td>
+        <td>{{item.productAuthor}}</td>
+        <td>{{item.productPublisher}}</td>
+        <td>{{item.productImage}}</td>
+        <td>{{item.productAvailRent}}</td>
+        <td>{{item.productAvailLent}}</td>
+        <td>{{item.productRentAmount}}</td>
+        <td>{{item.productRentDays}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
