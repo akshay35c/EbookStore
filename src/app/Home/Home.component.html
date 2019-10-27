@@ -1,42 +1,75 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">productId</th>
-      <th scope="col">productName</th>
-      <th scope="col">productType</th>
-      <th scope="col">productCategoryId</th>
-      <th scope="col">productLanguageId</th>
-      <th scope="col">productMaxPrice</th>
-      <th scope="col">productSellPrice</th>
-      <th scope="col">productDiscount</th>
-      <th scope="col">productAuthor</th>
-      <th scope="col">productPublisher</th>
-      <th scope="col">productImage</th>
-      <th scope="col">productAvailRent</th>
-      <th scope="col">productAvailLent</th>
-      <th scope="col">productRentAmount</th>
-      <th scope="col">productRentDays</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of products">
-        <td>{{item.productId}}</td>
-        <td>{{item.productName}}</td>
-        <td>{{item.productType}}</td>
-        <td>{{item.productCategoryId}}</td>
-        <td>{{item.productLanguageId}}</td>
-        <td>{{item.productMaxPrice}}</td>
-        <td>{{item.productSellPrice}}</td>
-        <td>{{item.productDiscount}}</td>
-        <td>{{item.productAuthor}}</td>
-        <td>{{item.productPublisher}}</td>
-        <td>{{item.productImage}}</td>
-        <td>{{item.productAvailRent}}</td>
-        <td>{{item.productAvailLent}}</td>
-        <td>{{item.productRentAmount}}</td>
-        <td>{{item.productRentDays}}</td>
-        
-      </tr>
-      
-    </tbody>
-  </table>
+<!-- <style>
+  .max-lines  {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 16px;     /* fallback */
+   max-height: 40px;      /* fallback */
+   -webkit-line-clamp: 4; /* number of lines to show */
+   -webkit-box-orient: vertical;
+  }
+</style>
+ -->
+<style>
+  .price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e86de
+  }
+
+  .price span {
+    color: #999;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-left: 7px;
+    display: inline-block
+  }
+  .bg {
+ background-image: url("assets/Images/bg4.jpg");
+ background-color: #cccccc;
+}
+</style>
+<div class="row bg" style="margin-right: 0px;margin-left: 0px; " >
+  <div class="col">
+    <div class="row" style="margin-right: 0px;margin-left: 0px;">
+      <div class="card-deck" style="
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 30px;
+      padding-bottom: 10px;">
+        <ng-container *ngFor="let item of products; let i = index">
+
+          <div class="card mb-3"
+            style="max-width: 540px;box-shadow: rgba(0, 0, 0, 0.3) 6px 5px 9px 0px;border: solid;border-color:#2E2E2E;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img [src]="item.productImage" [style.width.px]="imageWidth" [style.margin.px]="imageLeftMargin"
+                  [style.height.px]="imageH" class="card-img" alt="...">
+              </div>
+              <div class="col-md-8" style="padding-left: 20px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.productName}}</h5>
+                  <!-- <div>
+                    <p style="text-decoration: line-through ;color:red">{{item.productMaxPrice | currency: "INR":true}}
+                    </p>
+                    <p class="card-text">{{ item.productSellPrice | currency: "INR":true }}</p>
+                  </div> -->
+                  <div class="price" style="padding-bottom: 5px;">{{ item.productSellPrice | currency: "INR":true }}
+                    <span>{{item.productMaxPrice | currency: "INR":true}}</span> </div>
+                  <div>
+                    <button type="button" class="btn btn-success btn-sm" (click)="addtocart(item)">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
