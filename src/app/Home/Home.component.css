@@ -1,0 +1,35 @@
+
+  .max-lines  {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 20px;    /*fallback */
+   max-height: 40px;     /*fallback */
+   -webkit-line-clamp: 4;   /*number of lines to show */
+   -webkit-box-orient: vertical;
+  }
+ 
+
+  .price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e86de
+  }
+
+  .price span {
+    color: #999;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-left: 7px;
+    display: inline-block
+  }
+
+  .bg {
+    /* background-image: url("assets/Images/2.jpg"); */
+    background-color: #edeff0;
+  }
+  .bg1 {
+    /* background-image: url("assets/Images/12.jpg"); */
+    background-color:  #f4f5f6;
+  }
